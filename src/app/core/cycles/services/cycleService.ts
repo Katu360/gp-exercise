@@ -1,8 +1,9 @@
+import {CycleModel} from "../models/CycleModel";
 import {cycleRepository} from "../repositories/cycleRepository";
 
 class CycleService {
 
-  public async getCyclesList(): Promise<any> {
+  public async getCyclesList(): Promise<CycleModel[]> {
     return cycleRepository.getCyclesList()
   }
 }

@@ -1,8 +1,9 @@
 import {ERROR_CYCLE_LIST, REQUEST_CYCLE_LIST, SUCCESS_CYCLE_LIST} from "../constants/cycleActionTypes";
+import {CycleModel} from "./models/CycleModel";
 
 export interface CycleState {
   total: number
-  cycles?: Record<string, string>[]
+  cycles?: CycleModel[]
   isLoading: boolean
   error?: string
 }
@@ -25,7 +26,7 @@ export const userReducer = (state: CycleState, action: CycleActions) => {
     case REQUEST_CYCLE_LIST:
       return { ...state, isLoading: true }
     case SUCCESS_CYCLE_LIST:
-      return { ...state, isLoading: false, cycles: payload?.data }
+      return { ...state, isLoading: false, cycles: payload as CycleModel[] }
     case ERROR_CYCLE_LIST:
       return { ...state, isLoading: false }
     default:
