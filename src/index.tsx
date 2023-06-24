@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import {MantineProvider} from "@mantine/core";
+
 import App from "./app/App";
-import { ErrorPage } from "./app/pages";
+import {ErrorPage, HomePage} from "./app/pages";
+
+import './index.css';
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 
-
 const router = createBrowserRouter([
-  { path: "/", element: <App />, errorElement: <ErrorPage /> },
+  { path: "*", element: <App />, errorElement: <ErrorPage /> },
+  { element: <App />, children: [
+      { path: "/", element: <HomePage /> },
+    ]}
 ]);
 
 const root = ReactDOM.createRoot(
@@ -19,6 +24,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <MantineProvider withGlobalStyles withNormalizeCSS>
+      <RouterProvider router={router} />
+    </MantineProvider>
   </React.StrictMode>
 );
