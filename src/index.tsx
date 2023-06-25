@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {MantineProvider} from "@mantine/core";
 
+import "reflect-metadata";
+
 import App from "./app/App";
 import {ErrorPage, HomePage} from "./app/pages";
 
