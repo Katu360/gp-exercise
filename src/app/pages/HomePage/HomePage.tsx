@@ -1,16 +1,17 @@
 import {SimpleGrid, Text} from '@mantine/core';
+import {useEffect} from "react";
 import { CycleCard } from '../../components/CycleCard/CycleCard';
 import useCycles from "../../hooks/useCycles";
 
 import { useStyles } from './styles';
 
 export function HomePage() {
-  const { cycles } = useCycles()
+  const { cycles, getCycleList } = useCycles()
   const { classes } = useStyles();
 
-
-
-  console.log(cycles)
+  useEffect(() => {
+    getCycleList()
+  }, [])
 
   return (
     <>
@@ -21,7 +22,7 @@ export function HomePage() {
       {
         cycles &&
         <SimpleGrid cols={4} spacing="xl" mt={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
-          { cycles?.map(cycle => <CycleCard key={ cycle.id } name={ cycle.name } description={ cycle.description }/>) }
+          { cycles?.map(({ id, name, description }) => <CycleCard key={ id } id={ id } name={ name } description={ description }/>) }
         </SimpleGrid>
       }
     </>

@@ -1,30 +1,38 @@
 import { Card, Image, Text, Group, Button } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
 import { useStyles } from "./styles";
 
 interface CycleCardProps {
+  id: string
   name: string
   description: string
 }
 
 export function CycleCard(props: CycleCardProps) {
+  const { id, name, description } = props
+
+  const navigate = useNavigate()
+
   const { classes } = useStyles();
+
+  const moveToRent = () => { navigate(`/rent/${ id }`) }
 
   return (
     <Card withBorder radius="md" className={classes.card}>
-      <Card.Section className={classes.imageSection}>
-        <Image src="https://i.imgur.com/ZL52Q2D.png" alt={ props.name } />
+      <Card.Section className={classes.imageSection} onClick={ moveToRent }>
+        <Image src="https://i.imgur.com/ZL52Q2D.png" alt={ name } />
       </Card.Section>
 
       <Group position="apart" mt="md">
         <div>
-          <Text fw={500}>{ props.name }</Text>
+          <Text fw={500}>{ name }</Text>
           <Text className={ classes.description } fz="xs" c="dimmed">
-            { props.description }
+            { description }
           </Text>
         </div>
       </Group>
 
-      <Card.Section className={classes.section}>
+      <Card.Section className={classes.section} >
         <Group spacing={30}>
           <div>
             <Text fz="xl" fw={700} sx={{ lineHeight: 1 }}>
@@ -35,7 +43,7 @@ export function CycleCard(props: CycleCardProps) {
             </Text>
           </div>
 
-          <Button radius="xl" style={{ flex: 1 }}>
+          <Button radius="xl" style={{ flex: 1 }} onClick={ moveToRent }>
             Rent now
           </Button>
         </Group>

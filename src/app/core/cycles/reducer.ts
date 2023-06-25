@@ -1,4 +1,4 @@
-import {ERROR_CYCLE_LIST, REQUEST_CYCLE_LIST, SUCCESS_CYCLE_LIST} from "../constants/cycleActionTypes";
+import * as CycleActionType from "../constants/cycleActionTypes";
 import {CycleModel} from "./models/CycleModel";
 
 export interface CycleState {
@@ -6,6 +6,7 @@ export interface CycleState {
   cycles?: CycleModel[]
   isLoading: boolean
   error?: string
+  currentCycle?: CycleModel
 }
 
 export interface CycleActions {
@@ -22,12 +23,20 @@ export const initialState: CycleState = {
 export const userReducer = (state: CycleState, action: CycleActions) => {
   const { type, payload } = action
 
+  console.log(type, payload)
+
   switch (type) {
-    case REQUEST_CYCLE_LIST:
+    case CycleActionType.REQUEST_CYCLE_LIST:
       return { ...state, isLoading: true }
-    case SUCCESS_CYCLE_LIST:
+    case CycleActionType.SUCCESS_CYCLE_LIST:
       return { ...state, isLoading: false, cycles: payload as CycleModel[] }
-    case ERROR_CYCLE_LIST:
+    case CycleActionType.ERROR_CYCLE_LIST:
+      return { ...state, isLoading: false }
+    case CycleActionType.REQUEST_CYCLE:
+      return { ...state, isLoading: true }
+    case CycleActionType.SUCCESS_CYCLE:
+      return { ...state, isLoading: false, currentCycle: payload as CycleModel }
+    case CycleActionType.ERROR_CYCLE:
       return { ...state, isLoading: false }
     default:
       return state

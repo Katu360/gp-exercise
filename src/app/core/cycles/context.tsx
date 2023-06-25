@@ -1,9 +1,13 @@
-import {createContext, PropsWithChildren, useEffect, useReducer} from "react";
-import {requestCycleList, setCycleList, setCycleListError} from "./actions";
-import {CycleState, initialState, userReducer} from "./reducer";
+import {createContext, PropsWithChildren, useReducer} from "react";
+import {requestCycle, requestCycleList, setCycle, setCycleError, setCycleList, setCycleListError} from "./actions";
+import { initialState, userReducer } from "./reducer";
 import { cycleService } from "./services/cycleService";
 
-export const CycleContext: React.Context<CycleState> = createContext(initialState);
+export const CycleContext = createContext({
+  ...initialState,
+  getCycleList: async () => {},
+  getCycle: async({ id }: { id: string }) => {}
+});
 
 export const CycleProvider = ({ children }: PropsWithChildren) => {
 
@@ -16,13 +20,17 @@ export const CycleProvider = ({ children }: PropsWithChildren) => {
       .catch(e => dispatch(setCycleListError()))
   }
 
-  useEffect(() => {
-    getCycleList()
-  }, [])
+  const getCycle = async ({ id }: { id: string }) => {
+    dispatch(requestCycle())
+    cycleService.getCycle({ id })
+      .then(data => dispatch(setCycle(data)))
+      .catch(e => dispatch(setCycleError()))
+  }
 
-  const value = {
+  const value: any = {
     ...state,
-    getCycleList
+    getCycleList,
+    getCycle
   };
 
   return <CycleContext.Provider value={value}>{children}</CycleContext.Provider>;

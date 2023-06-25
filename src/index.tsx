@@ -5,7 +5,7 @@ import {MantineProvider} from "@mantine/core";
 import "reflect-metadata";
 
 import App from "./app/App";
-import {ErrorPage, HomePage} from "./app/pages";
+import {ErrorPage, HomePage, RentPage} from "./app/pages";
 
 import './index.css';
 
@@ -18,6 +18,7 @@ const router = createBrowserRouter([
   { path: "*", element: <App />, errorElement: <ErrorPage /> },
   { element: <App />, children: [
       { path: "/", element: <HomePage /> },
+      { path: "/rent/:cycleId", element: <RentPage /> },
     ]}
 ]);
 
