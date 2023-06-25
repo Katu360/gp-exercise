@@ -12,11 +12,11 @@ export default function App() {
     <Container size="xl" py="xl">
       <Title order={2} className={classes.title} ta="center" mt="sm">
         Rent your bike NOW!
-        <CycleProvider>
-          <Outlet />
-        </CycleProvider>
       </Title>
 
+      <CycleProvider>
+        <Outlet />
+      </CycleProvider>
     </Container>
   );
 }
