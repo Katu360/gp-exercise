@@ -4,48 +4,57 @@
       {
         "id": 1,
         "name": "Raleigh Superbe",
-        "type": "vintage"
+        "type": "vintage",
+        "description": "The super-deluxe version of their basic top-of-the-line bike"
       },
       {
         "id": 2,
-        "name": "Monark Súper Deluxe",
-        "type": "vintage"
+        "name": "Monark Súper D",
+        "type": "vintage",
+        "description": "The frame is original paint and the rest was painted to match"
       },
       {
         "id": 3,
         "name": "Legnano Roma",
-        "type": "vintage"
+        "type": "vintage",
+        "description": "The top road bike from Legnano"
       },
       {
         "id": 4,
         "name": "Rockrider ST 530",
-        "type": "modern"
+        "type": "modern",
+        "description": "Flat platform pedals with a wider pedalling surface and more pronounced dots for better grip on the pedal"
       },
       {
         "id": 5,
         "name": "Riverside 500",
-        "type": "modern"
+        "type": "modern",
+        "description": "The aluminium frame provides optimum steering comfort"
       },
       {
         "id": 6,
         "name": "Radio Revo 2022",
-        "type": "modern"
+        "type": "modern",
+        "description": "This bike is a well performing BMX designed for street and park"
       },
 
       {
         "id": 7,
         "name": "Torque:ON CF 9",
-        "type": "eletric"
+        "type": "eletric",
+        "description": "This one is powered by a Shimano EP8 motor offering 85Nm"
       },
       {
         "id": 8,
         "name": "Spectral 29 AL 5",
-        "type": "eletric"
+        "type": "eletric",
+        "description": "Perfect for shredding, skipping, braaaping"
       },
       {
         "id": 9,
-        "name": "Bosch Performance Line CX,",
-        "type": "eletric"
+        "name": "Performance Line",
+        "type": "eletric",
+        "description": "It accelerates exceptionally forcefully thanks to a maximum torque of 85 Nm"
       }
     ]
   }

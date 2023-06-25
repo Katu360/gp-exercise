@@ -1,5 +1,6 @@
 export class CycleModel {
   id!: number;
   name!: string;
-  type!: string
+  type!: string;
+  description!: string;
 }
