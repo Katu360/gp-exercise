@@ -1,4 +1,7 @@
+import {format, isDate} from "date-fns";
 import {createContext, PropsWithChildren, useEffect, useReducer} from "react";
+import {RentDetailModalItem} from "../../../types/RentDetailItem";
+import {RentFormValues} from "../../../types/RentFormValues";
 import {requestCycle, setCycle, setCycleError} from "../actions";
 import {initialState, cycleReducer, CycleState} from "../reducers/cycleReducer";
 import { cycleService } from "../services/cycleService";
@@ -6,6 +9,7 @@ import { cycleService } from "../services/cycleService";
 interface PresenterContext {
   state: CycleState
   getCycleById: ({ id }: { id: string }) => Promise<void>
+  calculateCycleRentDetails: (formValues: RentFormValues) => RentDetailModalItem[]
 }
 
 interface CyclePresenterProps extends PropsWithChildren {
@@ -14,7 +18,8 @@ interface CyclePresenterProps extends PropsWithChildren {
 
 export const CyclePresenterContext = createContext<PresenterContext>({
   state: initialState,
-  getCycleById: async({ id }) => {}
+  getCycleById: async({ id }) => {},
+  calculateCycleRentDetails: (formValues) => []
 });
 
 export const CyclePresenter = ({ children, cycleId }: CyclePresenterProps) => {
@@ -27,7 +32,8 @@ export const CyclePresenter = ({ children, cycleId }: CyclePresenterProps) => {
 
   const value: PresenterContext = {
     state,
-    getCycleById
+    getCycleById,
+    calculateCycleRentDetails
   };
 
   return <CyclePresenterContext.Provider value={value}>{children}</CyclePresenterContext.Provider>;
@@ -37,5 +43,33 @@ export const CyclePresenter = ({ children, cycleId }: CyclePresenterProps) => {
     cycleService.getCycle({ id })
       .then(data => dispatch(setCycle(data)))
       .catch(e => dispatch(setCycleError()))
+  }
+
+  function calculateCycleRentDetails(formValues: RentFormValues): RentDetailModalItem[] {
+    const rentDetails = Object.keys(formValues).map((key) => {
+      const rentFormValueKey = key as keyof RentFormValues
+
+      if (isDate(formValues[ rentFormValueKey ])) {
+        return { label: key, value: format(formValues[ rentFormValueKey ] as Date, 'PPP')}
+      }
+
+      return { label: key, value: formValues[ rentFormValueKey ]}
+    })
+
+    if (!state.cycle) {
+      return rentDetails
+    }
+
+    const { rentConditions } = state.cycle
+
+    const rentFinalPrice = cycleService.calculateCycleRentFinalPrice({
+      basePrice: rentConditions.basePrice,
+      gracePeriod: rentConditions.gracePeriod,
+      rentingDays: formValues.rentingDays,
+    })
+
+    rentDetails.push({ label: 'Final price', value: `$ ${rentFinalPrice}` })
+
+    return rentDetails
   }
 };

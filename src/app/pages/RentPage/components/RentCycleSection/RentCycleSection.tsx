@@ -1,14 +1,12 @@
 import {SimpleGrid, Loader, Title} from '@mantine/core';
 import {modals} from "@mantine/modals";
 import {notifications} from "@mantine/notifications";
-import {format, isDate} from 'date-fns';
 import React from "react";
 import { CycleCard } from '../../../../components/CycleCard/CycleCard';
 import { RentForm } from '../../../../components/RentForm/RentForm';
 import { RentDetailModalItem} from "../../../../core/types/RentDetailItem";
 import {RentFormValues} from "../../../../core/types/RentFormValues";
-import useCycle from "../../../../hooks/useCyclePresenter";
-import {calculateRentFinalPrice} from "../../../../utils/calculateRentFinalPrice";
+import useCyclePresenter from "../../../../hooks/useCyclePresenter";
 import {emailValidator} from "../../../../utils/validators/emailValidator";
 import { RentDetailItem } from '../RentDetailItem';
 import {RentDetailModal} from "../RentDetailModal";
@@ -26,7 +24,7 @@ const RentFormValidations = {
 }
 
 export function RentCycleSection() {
-  const { state } = useCycle()
+  const { state, calculateCycleRentDetails } = useCyclePresenter()
 
   const openModal = (items: RentDetailModalItem[]) => modals.openConfirmModal({
     title: <Title order={2}>Rent { state.cycle?.name }</Title>,
@@ -36,7 +34,7 @@ export function RentCycleSection() {
   });
 
   const onSubmitHandler = (values: RentFormValues) => {
-    const detailsItem = calculateRentDetails(values)
+    const detailsItem = calculateCycleRentDetails(values)
     openModal(detailsItem)
   }
 
@@ -57,32 +55,5 @@ export function RentCycleSection() {
       <RentForm initialValues={ InitialRentFormValues } validate={ RentFormValidations } onSubmit={ onSubmitHandler }/>
     </SimpleGrid>
   );
-
-  function calculateRentDetails(values: RentFormValues): RentDetailModalItem[] {
-    const rentDetails = Object.keys(values).map((key) => {
-      const rentFormValueKey = key as keyof RentFormValues
-
-      if (isDate(values[ rentFormValueKey ])) {
-        return { label: key, value: format(values[ rentFormValueKey ] as Date, 'PPP')}
-      }
-
-      return { label: key, value: values[ rentFormValueKey ]}
-    })
-
-    if (!state.cycle) {
-      return rentDetails
-    }
-
-    const rentFinalPrice = calculateRentFinalPrice({
-      basePrice: state.cycle.rentConditions.basePrice,
-      gracePeriod: state.cycle.rentConditions.gracePeriod,
-      rentingDays: values.rentingDays,
-    })
-
-    rentDetails.push({ label: 'Final price', value: `$ ${rentFinalPrice}` })
-
-    return rentDetails
-  }
-
 
 }

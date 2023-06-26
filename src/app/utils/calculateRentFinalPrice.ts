@@ -5,7 +5,7 @@ interface CalculateRentFinalPriceParams {
   gracePeriod?: number
 }
 
-export function calculateRentFinalPrice({ basePrice, rentingDays, gracePeriod = 0 }: CalculateRentFinalPriceParams) {
+export function calculateRentFinalPrice({ basePrice, rentingDays, gracePeriod = 0 }: CalculateRentFinalPriceParams): number {
   let extraCost = 0
 
   if (rentingDays > gracePeriod) {
