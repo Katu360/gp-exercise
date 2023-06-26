@@ -1,5 +1,5 @@
-import {CycleModel} from "../models/CycleModel";
-import {cycleRepository} from "../repositories/cycleRepository";
+import { CycleModel } from "../models/CycleModel";
+import { cycleRepository } from "../repositories/cycleRepository";
 
 class CycleService {
 

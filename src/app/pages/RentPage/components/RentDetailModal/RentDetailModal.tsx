@@ -1,5 +1,5 @@
-import {Card, Container, Stack, Title} from "@mantine/core";
-import React, {PropsWithChildren} from "react";
+import React, { PropsWithChildren } from "react";
+import { Card, Container, Stack, Title } from "@mantine/core";
 
 export function RentDetailModal({ children }: PropsWithChildren){
 

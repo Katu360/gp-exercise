@@ -1,20 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-import "reflect-metadata";
-
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-
 import { MantineProvider } from "@mantine/core";
 import { ModalsProvider } from '@mantine/modals';
 import { Notifications } from "@mantine/notifications";
 
-import App from "./app/App";
+import "reflect-metadata";
 
-import {ErrorPage, HomePage, RentPage} from "./app/pages";
+import App from "./app/App";
+import { ErrorPage, HomePage, RentPage } from "./app/pages";
 
 import './index.css';
 
@@ -23,7 +20,7 @@ const router = createBrowserRouter([
   { element: <App />, children: [
       { path: "/", element: <HomePage /> },
       { path: "/rent/:cycleId", element: <RentPage /> },
-    ]}
+    ] }
 ]);
 
 const root = ReactDOM.createRoot(

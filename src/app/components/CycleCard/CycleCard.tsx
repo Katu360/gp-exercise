@@ -1,5 +1,6 @@
-import { Card, Image, Text, Group, Button } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
+import { Button,Card, Group, Image, Text } from '@mantine/core';
+
 import { useStyles } from "./styles";
 
 interface CycleCardProps {

@@ -3,7 +3,7 @@ import { createStyles, rem } from '@mantine/core';
 export const useStyles = createStyles((theme) => ({
 
   card: {
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[ 7 ] : theme.white,
   },
 
   formSection: {
@@ -12,7 +12,7 @@ export const useStyles = createStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     borderBottom: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
+      theme.colorScheme === 'dark' ? theme.colors.dark[ 4 ] : theme.colors.gray[ 3 ]
     }`,
   },
 

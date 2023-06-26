@@ -9,7 +9,7 @@ export const useStyles = createStyles((theme) => ({
   },
 
   rentDetailTitle: {
-    color: theme.colors.gray[6],
+    color: theme.colors.gray[ 6 ],
   },
 
   rentDetailDescription: {

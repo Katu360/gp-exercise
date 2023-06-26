@@ -1,5 +1,6 @@
-import {plainToInstance} from "class-transformer";
-import {CycleModel} from "../models/CycleModel";
+import { plainToInstance } from "class-transformer";
+
+import { CycleModel } from "../models/CycleModel";
 
 class CycleRepository {
 

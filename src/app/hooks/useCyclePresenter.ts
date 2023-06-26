@@ -1,5 +1,6 @@
-import {useContext} from "react";
-import {RentPresenterContext} from "../core/presenters/RentPresenter";
+import { useContext } from "react";
+
+import { RentPresenterContext } from "../core/presenters/RentPresenter";
 
 
 const useCyclePresenter = () => {

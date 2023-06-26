@@ -1,5 +1,6 @@
-import {useContext} from "react";
-import {CycleListPresenterContext} from "../core/presenters/CycleListPresenter";
+import { useContext } from "react";
+
+import { CycleListPresenterContext } from "../core/presenters/CycleListPresenter";
 
 
 const useCycleListPresenter = () => {

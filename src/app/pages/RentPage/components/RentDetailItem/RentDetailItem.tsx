@@ -1,7 +1,9 @@
-import {Text} from "@mantine/core";
 import React from "react";
-import {RentDetailModalItem} from "../../../../core/types/RentDetailItem";
-import {useStyles} from "./styles";
+import { Text } from "@mantine/core";
+
+import { RentDetailModalItem } from "../../../../core/types/RentDetailItem";
+
+import { useStyles } from "./styles";
 
 
 interface RentDetailItemProps extends RentDetailModalItem {}

@@ -2,7 +2,7 @@ import { createStyles, rem } from '@mantine/core';
 
 export const useStyles = createStyles((theme) => ({
   card: {
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[ 7 ] : theme.white,
   },
 
   imageSection: {
@@ -11,7 +11,7 @@ export const useStyles = createStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     borderBottom: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
+      theme.colorScheme === 'dark' ? theme.colors.dark[ 4 ] : theme.colors.gray[ 3 ]
     }`,
   },
 
@@ -27,13 +27,13 @@ export const useStyles = createStyles((theme) => ({
   section: {
     padding: theme.spacing.md,
     borderTop: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
+      theme.colorScheme === 'dark' ? theme.colors.dark[ 4 ] : theme.colors.gray[ 3 ]
     }`,
   },
 
   icon: {
     marginRight: rem(5),
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[5],
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[ 2 ] : theme.colors.gray[ 5 ],
   },
 
   description: {

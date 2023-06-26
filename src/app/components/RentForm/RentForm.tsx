@@ -1,11 +1,11 @@
-import {TextInput, Button, Group, Card, NumberInput} from '@mantine/core';
+import { Button, Card, Group, NumberInput,TextInput } from '@mantine/core';
 import { DatePickerInput } from '@mantine/dates';
-
 import { useForm } from '@mantine/form';
-import {FormValidateInput} from "@mantine/form/lib/types";
+import { FormValidateInput } from "@mantine/form/lib/types";
 
 import { RentFormValues } from '../../core/types/RentFormValues';
-import {useStyles} from "./styles";
+
+import { useStyles } from "./styles";
 
 interface RestFormProps {
   initialValues?: RentFormValues

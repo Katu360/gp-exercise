@@ -1,7 +1,9 @@
-import {Container, Center, Text} from '@mantine/core';
 import { useParams } from 'react-router-dom';
-import {RentPresenter} from "../../core/presenters/RentPresenter";
-import {RentCycleSection} from "./components/RentCycleSection";
+import { Center, Container, Text } from '@mantine/core';
+
+import { RentPresenter } from "../../core/presenters/RentPresenter";
+
+import { RentCycleSection } from "./components/RentCycleSection";
 
 import { useStyles } from './styles';
 

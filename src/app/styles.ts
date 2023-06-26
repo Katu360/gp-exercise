@@ -5,7 +5,7 @@ export const useStyles = createStyles((theme) => ({
     fontSize: rem(34),
     fontWeight: 900,
 
-    [theme.fn.smallerThan('sm')]: {
+    [ theme.fn.smallerThan('sm') ]: {
       fontSize: rem(24),
     },
   }

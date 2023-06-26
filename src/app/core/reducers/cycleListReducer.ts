@@ -1,5 +1,5 @@
 import * as CycleActionType from "../constants/cycleActionTypes";
-import {CycleModel} from "../models/CycleModel";
+import { CycleModel } from "../models/CycleModel";
 
 export interface CycleListState {
   cycles?: CycleModel[]

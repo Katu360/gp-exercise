@@ -1,12 +1,13 @@
-import {format, isDate} from "date-fns";
-import {createContext, PropsWithChildren, useEffect, useReducer} from "react";
-import {RentDetailModalItem} from "../types/RentDetailItem";
-import {RentFormValues} from "../types/RentFormValues";
-import {requestCycle, setCycle, setCycleError} from "../actions";
-import {RentRequestModel} from "../models/RentRequestModel";
-import {initialState, rentReducer, RentState} from "../reducers/rentReducer";
+import { createContext, PropsWithChildren, useEffect, useReducer } from "react";
+import { format, isDate } from "date-fns";
+
+import { requestCycle, setCycle, setCycleError } from "../actions";
+import { RentRequestModel } from "../models/RentRequestModel";
+import { initialState, rentReducer, RentState } from "../reducers/rentReducer";
 import { cycleService } from "../services/cycleService";
-import {rentService} from "../services/rentService";
+import { rentService } from "../services/rentService";
+import { RentDetailModalItem } from "../types/RentDetailItem";
+import { RentFormValues } from "../types/RentFormValues";
 
 interface PresenterContext {
   state: RentState
@@ -93,10 +94,10 @@ export const RentPresenter = ({ children, cycleId }: RentPresenterProps) => {
       const rentFormValueKey = key as keyof RentRequestModel
 
       if (isDate(rentRequestModel[ rentFormValueKey ])) {
-        return { label: key, value: format(rentRequestModel[ rentFormValueKey ] as Date, 'PPP')}
+        return { label: key, value: format(rentRequestModel[ rentFormValueKey ] as Date, 'PPP') }
       }
 
-      return { label: key, value: rentRequestModel[ rentFormValueKey ]}
+      return { label: key, value: rentRequestModel[ rentFormValueKey ] }
     }).filter(it => it.value)
   }
 };

@@ -1,5 +1,5 @@
-import {Container, Title} from '@mantine/core';
 import { Outlet } from 'react-router-dom';
+import { Container, Title } from '@mantine/core';
 
 import { useStyles } from './styles';
 

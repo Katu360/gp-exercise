@@ -1,6 +1,7 @@
-import {instanceToPlain} from "class-transformer";
+import { instanceToPlain } from "class-transformer";
 import * as localforage from "localforage";
-import {RentRequestModel} from "../models/RentRequestModel";
+
+import { RentRequestModel } from "../models/RentRequestModel";
 
 class RentRepository {
 

@@ -1,5 +1,6 @@
-import {Expose, Type } from "class-transformer";
-import {CycleModel} from "./CycleModel";
+import { Expose, Type } from "class-transformer";
+
+import { CycleModel } from "./CycleModel";
 
 export class RentRequestModel {
 
