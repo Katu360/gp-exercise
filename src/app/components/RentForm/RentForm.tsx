@@ -47,6 +47,7 @@ export function RentForm(props: RestFormProps) {
             popoverProps={{ withinPortal: true }}
             label="Departure date"
             placeholder="When will you leave?"
+            minDate={new Date()}
             clearable={false}
             {...form.getInputProps('startingDate')}
           />

@@ -1,12 +1,14 @@
 import {SimpleGrid, Loader, Title} from '@mantine/core';
 import {modals} from "@mantine/modals";
 import {notifications} from "@mantine/notifications";
+import {format, isDate} from 'date-fns';
 import React from "react";
 import { CycleCard } from '../../../../components/CycleCard/CycleCard';
 import { RentForm } from '../../../../components/RentForm/RentForm';
 import { RentDetailModalItem} from "../../../../core/types/RentDetailItem";
 import {RentFormValues} from "../../../../core/types/RentFormValues";
 import useCycle from "../../../../hooks/useCycle";
+import {calculateRentFinalPrice} from "../../../../utils/calculateRentFinalPrice";
 import {emailValidator} from "../../../../utils/validators/emailValidator";
 import { RentDetailItem } from '../RentDetailItem';
 import {RentDetailModal} from "../RentDetailModal";
@@ -22,7 +24,6 @@ const InitialRentFormValues = {
 const RentFormValidations = {
   email: emailValidator
 }
-
 
 export function RentCycleSection() {
   const { cycle } = useCycle()
@@ -58,13 +59,27 @@ export function RentCycleSection() {
   );
 
   function calculateRentDetails(values: RentFormValues): RentDetailModalItem[] {
-    const rentDetails = [
-      { label: 'Name', value: values.name },
-      { label: 'Email', value: values.email },
-      { label: 'Phone number', value: values.phoneNumber },
-      { label: 'Starting renting day', value: values.startingDate },
-      { label: 'Renting days', value: values.rentingDays }
-    ]
+    const rentDetails = Object.keys(values).map((key) => {
+      const rentFormValueKey = key as keyof RentFormValues
+
+      if (isDate(values[ rentFormValueKey ])) {
+        return { label: key, value: format(values[ rentFormValueKey ] as Date, 'PPP')}
+      }
+
+      return { label: key, value: values[ rentFormValueKey ]}
+    })
+
+    if (!cycle) {
+      return rentDetails
+    }
+
+    const rentFinalPrice = calculateRentFinalPrice({
+      basePrice: cycle.rentConditions.basePrice,
+      gracePeriod: cycle.rentConditions.gracePeriod,
+      rentingDays: values.rentingDays,
+    })
+
+    rentDetails.push({ label: 'Final price', value: `$ ${rentFinalPrice}` })
 
     return rentDetails
   }
