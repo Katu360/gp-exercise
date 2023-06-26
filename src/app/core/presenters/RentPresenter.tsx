@@ -1,7 +1,7 @@
 import {format, isDate} from "date-fns";
 import {createContext, PropsWithChildren, useEffect, useReducer} from "react";
-import {RentDetailModalItem} from "../../../types/RentDetailItem";
-import {RentFormValues} from "../../../types/RentFormValues";
+import {RentDetailModalItem} from "../types/RentDetailItem";
+import {RentFormValues} from "../types/RentFormValues";
 import {requestCycle, setCycle, setCycleError} from "../actions";
 import {RentRequestModel} from "../models/RentRequestModel";
 import {initialState, rentReducer, RentState} from "../reducers/rentReducer";

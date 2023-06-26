@@ -1,4 +1,4 @@
-import * as CycleActionType from "../../../constants/cycleActionTypes";
+import * as CycleActionType from "../constants/cycleActionTypes";
 import {CycleModel} from "../models/CycleModel";
 
 export interface CycleListState {

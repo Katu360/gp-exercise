@@ -1,6 +1,6 @@
 import {plainToInstance} from "class-transformer";
 import {isBefore, set} from "date-fns";
-import {calculateRentFinalPrice} from "../../../../utils/calculateRentFinalPrice";
+import {calculateRentFinalPrice} from "../../utils/calculateRentFinalPrice";
 import { RentRequestModel } from "../models/RentRequestModel";
 import {rentRepository} from "../repositories/rentRepository";
 

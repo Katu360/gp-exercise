@@ -1,5 +1,5 @@
 import {Center, Container, Text} from '@mantine/core';
-import {CycleListPresenter} from "../../core/entities/cycles/presenters/CycleListPresenter";
+import {CycleListPresenter} from "../../core/presenters/CycleListPresenter";
 import {CycleListSection} from "./components/CycleListSection";
 
 import { useStyles } from './styles';

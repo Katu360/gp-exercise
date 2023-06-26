@@ -1,4 +1,4 @@
-import {SimpleGrid, Loader, Title} from '@mantine/core';
+import {SimpleGrid, Loader} from '@mantine/core';
 import {modals} from "@mantine/modals";
 import {notifications} from "@mantine/notifications";
 import React from "react";
