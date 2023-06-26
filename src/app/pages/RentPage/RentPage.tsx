@@ -1,6 +1,6 @@
 import {Container, Center, Text} from '@mantine/core';
 import { useParams } from 'react-router-dom';
-import {CycleProvider} from "../../core/entities/cycles/cycleContext";
+import {CyclePresenter} from "../../core/entities/cycles/presenters/CyclePresenter";
 import {RentCycleSection} from "./components/RentCycleSection";
 
 import { useStyles } from './styles';
@@ -16,9 +16,9 @@ export function RentPage() {
         Osur price list section will introduce you to the wide range of rental bikes we offer accompanied by an easy to understand chart showing prices for each bike.
       </Text>
       <Center mt={50}>
-        <CycleProvider cycleId={ cycleId }>
+        <CyclePresenter cycleId={ cycleId }>
           <RentCycleSection />
-        </CycleProvider>
+        </CyclePresenter>
       </Center>
     </Container>
   );

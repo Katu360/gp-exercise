@@ -1,7 +1,7 @@
 import * as CycleActionType from "../../constants/cycleActionTypes";
 import {CycleModel} from "./models/CycleModel";
 
-export interface CycleState {
+export interface CycleListState {
   cycles?: CycleModel[]
   isLoading: boolean
   error?: string
@@ -12,12 +12,12 @@ export interface CycleActions {
   payload?: Record<string, any>
 }
 
-export const initialState: CycleState = {
+export const initialState: CycleListState = {
   cycles: [],
   isLoading: false,
 };
 
-export const cycleListReducer = (state: CycleState, action: CycleActions) => {
+export const cycleListReducer = (state: CycleListState, action: CycleActions) => {
   const { type, payload } = action
 
   switch (type) {

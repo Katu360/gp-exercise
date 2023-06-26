@@ -7,7 +7,7 @@ import { CycleCard } from '../../../../components/CycleCard/CycleCard';
 import { RentForm } from '../../../../components/RentForm/RentForm';
 import { RentDetailModalItem} from "../../../../core/types/RentDetailItem";
 import {RentFormValues} from "../../../../core/types/RentFormValues";
-import useCycle from "../../../../hooks/useCycle";
+import useCycle from "../../../../hooks/useCyclePresenter";
 import {calculateRentFinalPrice} from "../../../../utils/calculateRentFinalPrice";
 import {emailValidator} from "../../../../utils/validators/emailValidator";
 import { RentDetailItem } from '../RentDetailItem';
@@ -26,10 +26,10 @@ const RentFormValidations = {
 }
 
 export function RentCycleSection() {
-  const { cycle } = useCycle()
+  const { state } = useCycle()
 
   const openModal = (items: RentDetailModalItem[]) => modals.openConfirmModal({
-    title: <Title order={2}>Rent { cycle?.name }</Title>,
+    title: <Title order={2}>Rent { state.cycle?.name }</Title>,
     children: <RentDetailModal>{ items.map( item => <RentDetailItem {...item}/>) }</RentDetailModal>,
     labels: { confirm: 'Confirm', cancel: 'Cancel' },
     onConfirm: onModalConfirmHandler,
@@ -47,13 +47,13 @@ export function RentCycleSection() {
     })
   }
 
-  if (!cycle) {
+  if (!state.cycle) {
     return <Loader size="xl" />
   }
 
   return (
     <SimpleGrid cols={2} spacing="xl"  breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
-      <CycleCard id={ cycle.id } name={ cycle.name } description={ cycle.description } basePrice={ cycle.rentConditions.basePrice }/>
+      <CycleCard id={ state.cycle.id } name={ state.cycle.name } description={ state.cycle.description } basePrice={ state.cycle.rentConditions.basePrice }/>
       <RentForm initialValues={ InitialRentFormValues } validate={ RentFormValidations } onSubmit={ onSubmitHandler }/>
     </SimpleGrid>
   );
@@ -69,13 +69,13 @@ export function RentCycleSection() {
       return { label: key, value: values[ rentFormValueKey ]}
     })
 
-    if (!cycle) {
+    if (!state.cycle) {
       return rentDetails
     }
 
     const rentFinalPrice = calculateRentFinalPrice({
-      basePrice: cycle.rentConditions.basePrice,
-      gracePeriod: cycle.rentConditions.gracePeriod,
+      basePrice: state.cycle.rentConditions.basePrice,
+      gracePeriod: state.cycle.rentConditions.gracePeriod,
       rentingDays: values.rentingDays,
     })
 

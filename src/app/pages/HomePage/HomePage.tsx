@@ -1,5 +1,5 @@
 import {Center, Container, Text} from '@mantine/core';
-import { CycleListProvider } from '../../core/entities/cycles/cycleListContext';
+import {CycleListPresenter} from "../../core/entities/cycles/presenters/CycleListPresenter";
 import {CycleListSection} from "./components/CycleListSection";
 
 import { useStyles } from './styles';
@@ -14,9 +14,9 @@ export function HomePage() {
       </Text>
 
       <Center mt={50}>
-      <CycleListProvider>
+      <CycleListPresenter>
         <CycleListSection />
-      </CycleListProvider>
+      </CycleListPresenter>
       </Center>
     </Container>
   );
