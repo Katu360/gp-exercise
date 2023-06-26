@@ -27,8 +27,8 @@ export function RentCycleSection() {
   const { state, getRentRequestDetails, saveRentRequest } = useCyclePresenter()
 
   const openModal = (items: RentDetailModalItem[], formValues: RentFormValues) => modals.openConfirmModal({
-    title: <Title order={2}>Rent { state.cycle?.name }</Title>,
-    children: <RentDetailModal>{ items.map( item => <RentDetailItem {...item}/>) }</RentDetailModal>,
+    title: `Rent ${ state.cycle?.name }`,
+    children: <RentDetailModal>{ items.map( item => <RentDetailItem key={ item.label }{...item}/>) }</RentDetailModal>,
     labels: { confirm: 'Confirm', cancel: 'Cancel' },
     onConfirm: () => onModalConfirmHandler(formValues),
   });
