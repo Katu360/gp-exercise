@@ -1,6 +1,6 @@
 import {createContext, PropsWithChildren, useEffect, useReducer} from "react";
 import {requestCycle, setCycle, setCycleError} from "../actions";
-import {initialState, cycleReducer, CycleState} from "../cycleReducer";
+import {initialState, cycleReducer, CycleState} from "../reducers/cycleReducer";
 import { cycleService } from "../services/cycleService";
 
 interface PresenterContext {
