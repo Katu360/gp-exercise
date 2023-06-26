@@ -1,6 +1,6 @@
 import { Loader, SimpleGrid } from '@mantine/core';
-import { CycleCard } from '../../components/CycleCard/CycleCard';
-import useCycles from "../../hooks/useCycles";
+import { CycleCard } from '../../../../components/CycleCard/CycleCard';
+import useCycles from "../../../../hooks/useCycles";
 
 export function CycleListSection() {
   const { cycles } = useCycles()

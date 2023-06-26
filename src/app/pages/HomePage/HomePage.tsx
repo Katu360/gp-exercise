@@ -1,6 +1,6 @@
 import {Center, Container, Text} from '@mantine/core';
 import { CycleListProvider } from '../../core/entities/cycles/cycleListContext';
-import {CycleListSection} from "./CycleListSection";
+import {CycleListSection} from "./components/CycleListSection";
 
 import { useStyles } from './styles';
 
