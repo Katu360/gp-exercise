@@ -6,10 +6,11 @@ interface CycleCardProps {
   id: string
   name: string
   description: string
+  basePrice: number
 }
 
 export function CycleCard(props: CycleCardProps) {
-  const { id, name, description } = props
+  const { id, name, description, basePrice } = props
 
   const navigate = useNavigate()
 
@@ -36,7 +37,7 @@ export function CycleCard(props: CycleCardProps) {
         <Group spacing={30}>
           <div>
             <Text fz="xl" fw={700} sx={{ lineHeight: 1 }}>
-              $168.00
+              From ${ basePrice }
             </Text>
             <Text fz="sm" c="dimmed" fw={500} sx={{ lineHeight: 1 }} mt={3}>
               per day

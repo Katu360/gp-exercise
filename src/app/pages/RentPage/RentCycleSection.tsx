@@ -26,9 +26,11 @@ export function RentCycleSection() {
     return <Loader size="xl" />
   }
 
+  console.log(cycle)
+
   return (
     <SimpleGrid cols={2} spacing="xl"  breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
-      <CycleCard id={ cycle.id } name={ cycle.name } description={ cycle.description }/>
+      <CycleCard id={ cycle.id } name={ cycle.name } description={ cycle.description } basePrice={ cycle.rentConditions.basePrice }/>
       <RentForm initialValues={ InitialRentFormValues } validate={ RentFormValidations } onSubmit={ onSubmitHandler }/>
     </SimpleGrid>
   );

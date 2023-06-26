@@ -4,56 +4,81 @@
       "id": 1,
       "name": "Raleigh Superbe",
       "type": "vintage",
-      "description": "The super-deluxe version of their basic top-of-the-line bike"
+      "description": "The super-deluxe version of their basic top-of-the-line bike",
+      "rentConditionsId": 3
     },
     {
       "id": 2,
       "name": "Monark Súper D",
       "type": "vintage",
-      "description": "The frame is original paint and the rest was painted to match"
+      "description": "The frame is original paint and the rest was painted to match",
+      "rentConditionsId": 3
     },
     {
       "id": 3,
       "name": "Legnano Roma",
       "type": "vintage",
-      "description": "The top road bike from Legnano"
+      "description": "The top road bike from Legnano",
+      "rentConditionsId": 3
     },
     {
       "id": 4,
       "name": "Rockrider ST 530",
       "type": "modern",
-      "description": "Flat platform pedals with a wider pedalling surface and more pronounced dots for better grip on the pedal"
+      "description": "Flat platform pedals with a wider pedalling surface and more pronounced dots for better grip on the pedal",
+      "rentConditionsId": 2
     },
     {
       "id": 5,
       "name": "Riverside 500",
       "type": "modern",
-      "description": "The aluminium frame provides optimum steering comfort"
+      "description": "The aluminium frame provides optimum steering comfort",
+      "rentConditionsId": 2
     },
     {
       "id": 6,
       "name": "Radio Revo 2022",
       "type": "modern",
-      "description": "This bike is a well performing BMX designed for street and park"
+      "description": "This bike is a well performing BMX designed for street and park",
+      "rentConditionsId": 2
     },
-
     {
       "id": 7,
       "name": "Torque:ON CF 9",
       "type": "eletric",
-      "description": "This one is powered by a Shimano EP8 motor offering 85Nm"
+      "description": "This one is powered by a Shimano EP8 motor offering 85Nm",
+      "rentConditionsId": 1
     },
     {
       "id": 8,
       "name": "Spectral 29 AL 5",
       "type": "eletric",
-      "description": "Perfect for shredding, skipping, braaaping"
+      "description": "Perfect for shredding, skipping, braaaping",
+      "rentConditionsId": 1
     },
     {
       "id": 9,
       "name": "Performance Line",
       "type": "eletric",
-      "description": "It accelerates exceptionally forcefully thanks to a maximum torque of 85 Nm"
+      "description": "It accelerates exceptionally forcefully thanks to a maximum torque of 85 Nm",
+      "rentConditionsId": 1
+    }
+  ],
+  "rentConditions": [
+    {
+      "id": 1,
+      "gracePeriod": 0,
+      "basePrice": 10
+    },
+    {
+      "id": 2,
+      "gracePeriod": 3,
+      "basePrice": 10
+    },
+    {
+      "id": 3,
+      "gracePeriod": 5,
+      "basePrice": 10
     }
   ]
 }

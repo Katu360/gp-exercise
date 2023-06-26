@@ -11,7 +11,7 @@ export function CycleListSection() {
 
   return (
     <SimpleGrid cols={4} spacing="xl" mt={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
-      { cycles?.map(({ id, name, description }) => <CycleCard key={ id } id={ id } name={ name } description={ description }/>) }
+      { cycles?.map(({ id, name, description , rentConditions }) => <CycleCard key={ id } id={ id } name={ name } basePrice={ rentConditions.basePrice } description={ description }/>) }
     </SimpleGrid>
   );
 }
