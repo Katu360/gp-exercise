@@ -62,8 +62,13 @@ export const CyclePresenter = ({ children, cycleId }: CyclePresenterProps) => {
 
     const { rentConditions } = state.cycle
 
-    const rentFinalPrice = cycleService.calculateCycleRentFinalPrice({
+    const basePrice = cycleService.calculateBasePriceWithOvercharge({
       basePrice: rentConditions.basePrice,
+      startingDate: formValues.startingDate as Date
+    })
+
+    const rentFinalPrice = cycleService.calculateCycleRentFinalPrice({
+      basePrice,
       gracePeriod: rentConditions.gracePeriod,
       rentingDays: formValues.rentingDays,
     })
