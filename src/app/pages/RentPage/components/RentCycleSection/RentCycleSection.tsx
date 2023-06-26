@@ -24,21 +24,22 @@ const RentFormValidations = {
 }
 
 export function RentCycleSection() {
-  const { state, calculateCycleRentDetails } = useCyclePresenter()
+  const { state, getRentRequestDetails, saveRentRequest } = useCyclePresenter()
 
-  const openModal = (items: RentDetailModalItem[]) => modals.openConfirmModal({
+  const openModal = (items: RentDetailModalItem[], formValues: RentFormValues) => modals.openConfirmModal({
     title: <Title order={2}>Rent { state.cycle?.name }</Title>,
     children: <RentDetailModal>{ items.map( item => <RentDetailItem {...item}/>) }</RentDetailModal>,
     labels: { confirm: 'Confirm', cancel: 'Cancel' },
-    onConfirm: onModalConfirmHandler,
+    onConfirm: () => onModalConfirmHandler(formValues),
   });
 
   const onSubmitHandler = (values: RentFormValues) => {
-    const detailsItem = calculateCycleRentDetails(values)
-    openModal(detailsItem)
+    const detailsItem = getRentRequestDetails(values)
+    openModal(detailsItem, values)
   }
 
-  const onModalConfirmHandler = () => {
+  const onModalConfirmHandler = async (formValues: RentFormValues) => {
+    await saveRentRequest(formValues)
     notifications.show({
       title: 'Your rent has been processed successfully',
       message: 'Hey there, your code is awesome! 🤥',

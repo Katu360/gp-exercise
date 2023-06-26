@@ -1,22 +1,22 @@
 import * as CycleActionType from "../../../constants/cycleActionTypes";
 import {CycleModel} from "../models/CycleModel";
 
-export interface CycleState {
+export interface RentState {
   isLoading: boolean
   error?: string
   cycle?: CycleModel
 }
 
-export interface CycleActions {
+export interface RentActions {
   type: string,
   payload?: Record<string, any>
 }
 
-export const initialState: CycleState = {
+export const initialState: RentState = {
   isLoading: false,
 };
 
-export const cycleReducer = (state: CycleState, action: CycleActions) => {
+export const rentReducer = (state: RentState, action: RentActions) => {
   const { type, payload } = action
 
   switch (type) {
