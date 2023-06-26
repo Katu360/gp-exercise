@@ -2,14 +2,14 @@ import {SimpleGrid, Loader, Title} from '@mantine/core';
 import {modals} from "@mantine/modals";
 import {notifications} from "@mantine/notifications";
 import React from "react";
-import { CycleCard } from '../../components/CycleCard/CycleCard';
-import { RentForm } from '../../components/RentForm/RentForm';
-import { RentDetailModalItem} from "../../core/types/RentDetailItem";
-import {RentFormValues} from "../../core/types/RentFormValues";
-import useCycle from "../../hooks/useCycle";
-import {emailValidator} from "../../utils/validators/emailValidator";
-import { RentDetailItem } from './components/RentDetailItem';
-import {RentDetailModal} from "./RentDetailModal";
+import { CycleCard } from '../../../../components/CycleCard/CycleCard';
+import { RentForm } from '../../../../components/RentForm/RentForm';
+import { RentDetailModalItem} from "../../../../core/types/RentDetailItem";
+import {RentFormValues} from "../../../../core/types/RentFormValues";
+import useCycle from "../../../../hooks/useCycle";
+import {emailValidator} from "../../../../utils/validators/emailValidator";
+import { RentDetailItem } from '../RentDetailItem';
+import {RentDetailModal} from "../RentDetailModal";
 
 const InitialRentFormValues = {
   name: '',

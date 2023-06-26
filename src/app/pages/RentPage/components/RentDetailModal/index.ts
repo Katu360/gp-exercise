@@ -1,0 +1,1 @@
+export { RentDetailModal } from "./RentDetailModal"

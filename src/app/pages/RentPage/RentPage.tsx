@@ -1,7 +1,7 @@
 import {Container, Center, Text} from '@mantine/core';
 import { useParams } from 'react-router-dom';
 import {CycleProvider} from "../../core/entities/cycles/cycleContext";
-import {RentCycleSection} from "./RentCycleSection";
+import {RentCycleSection} from "./components/RentCycleSection";
 
 import { useStyles } from './styles';
 
