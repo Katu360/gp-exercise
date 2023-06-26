@@ -1,0 +1,1 @@
+export { RentDetailItem } from "./RentDetailItem"

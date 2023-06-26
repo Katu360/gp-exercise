@@ -1,18 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {MantineProvider} from "@mantine/core";
 
 import "reflect-metadata";
-
-import App from "./app/App";
-import {ErrorPage, HomePage, RentPage} from "./app/pages";
-
-import './index.css';
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
+import { MantineProvider } from "@mantine/core";
+import { ModalsProvider } from '@mantine/modals';
+import { Notifications } from "@mantine/notifications";
+
+import App from "./app/App";
+
+import {ErrorPage, HomePage, RentPage} from "./app/pages";
+
+import './index.css';
 
 const router = createBrowserRouter([
   { path: "*", element: <App />, errorElement: <ErrorPage /> },
@@ -28,7 +32,10 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <MantineProvider withGlobalStyles withNormalizeCSS>
-      <RouterProvider router={router} />
+      <Notifications />
+      <ModalsProvider>
+        <RouterProvider router={router} />
+      </ModalsProvider>
     </MantineProvider>
   </React.StrictMode>
 );

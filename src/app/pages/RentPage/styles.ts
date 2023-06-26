@@ -15,5 +15,20 @@ export const useStyles = createStyles((theme) => ({
       marginLeft: 'auto',
       marginRight: 'auto',
     },
-  }
+  },
+
+  rentDetailWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    color: theme.white,
+  },
+
+  rentDetailTitle: {
+    color: theme.colors.gray[6],
+  },
+
+  rentDetailDescription: {
+    color: theme.black,
+  },
 }));
