@@ -1,8 +1,6 @@
 import {Container, Title} from '@mantine/core';
 import { Outlet } from 'react-router-dom';
 
-import {CycleProvider} from "./core/cycles/context";
-
 import { useStyles } from './styles';
 
 export default function App() {
@@ -13,10 +11,7 @@ export default function App() {
       <Title order={2} className={classes.title} ta="center" mt="sm">
         Rent your bike NOW!
       </Title>
-
-      <CycleProvider>
-        <Outlet />
-      </CycleProvider>
+      <Outlet />
     </Container>
   );
 }

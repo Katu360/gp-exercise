@@ -1,4 +1,4 @@
-import * as CycleActionType from "../constants/cycleActionTypes";
+import * as CycleActionType from "../../constants/cycleActionTypes";
 
 export const requestCycleList = () => ({
   type: CycleActionType.REQUEST_CYCLE_LIST

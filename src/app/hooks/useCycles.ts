@@ -1,9 +1,9 @@
 import {useContext} from "react";
-import {CycleContext} from "../core/cycles/context";
+import {CycleListContext} from "../core/entities/cycles/cycleListContext";
 
 
 const useCycles = () => {
-  const context = useContext(CycleContext)
+  const context = useContext(CycleListContext)
 
   if (context === undefined) {
     throw new Error("useCycles must be used within ShopContext")
